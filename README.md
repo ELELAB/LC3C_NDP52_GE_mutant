@@ -25,3 +25,9 @@ modeller_data -> the files and scripts to reproduce the model selection for simu
 simulations -> templates files for gromacs to run preparation, md and metaD simulations + bash scripts for the preparation steps
 simulations_analysis -> folders, scripts, input and outputs to reproduce the analyses of md simulations or metadynamics
 
+NOTES
+
+The numbering of the PDB and GRO file of the complex LC3C-NDP52 G->E mutant has been shifted of 100 amino acids with respect
+to what reported in UNIPROT for practical purposes. Thus E140 will be E240 in the PDB, XTC and GRO files, as an example to orient the reader.
+ 
+
