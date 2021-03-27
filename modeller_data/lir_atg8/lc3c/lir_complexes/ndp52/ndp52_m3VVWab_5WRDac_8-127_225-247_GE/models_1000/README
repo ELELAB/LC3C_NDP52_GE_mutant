@@ -1,0 +1,43 @@
+We started to work creating a subfolder named NDP52_extended in
+/data/user/shared_projects/lir_tfg/modeller/LC3C/NDP52_extended
+
+We copied here our templates:
+-PDB entry 5WRD (complex of LC3B FYCO-LIR), the template structure to use only to model the coiled-coil C-terminal part of the NDP_52 LIR
+-The model LC3C_NDP52_shorter_alignment_maxg.pdb (from /data/user/shared_projects/lir_tfg/simulations/LC3C/check_and_finalized/NDP52/model_maxg/) the template structure to use to model the rest of the complex (e.g. LC3C and the NDP_52 LIR)
+
+Firstly we downloaded the 5WRD PDB file and we prepared it. In this pdb file, we have four chains (A and B for the LC3B and C and D for the FYCO-LIR). In the first modelling we selected the chain A and chain C. Mukesh will the same procedure using chain B and chain D. In the 5WRD we have the residues of LC3B from Glu4 to Gly120  (Chain A) and the residues of FYCO-LIR. We removed all the HETATOMS. We named the file with only chain A and C as 5wrd_lir.pdb. We used this file to retrieve his aa sequence in FASTA format using the script pdb2fasta.pl
+
+pdb2fasta.pl 5wrd_lir.fasta
+
+Then we obtained the sequence in FASTA format of the model LC3C_NDP52_shorter_alignment_maxg.pdb from the corresponding modeller folder.
+We made an alignment file named xxx.ali using CLUSTAL Omega to obtain the correct alignment of LC3B and LC3C in the two templates and for the output models. Then we aligned the two LIRs as:
+
+NDP52                FRPENEEDILVVTTQGE------
+5WRD                 ----DDAVFDIITDEELCQIQES
+NDP52_extended       FRPENEEDILVVTTQGEVEEIEQ
+
+and to build the LIR model we modified the alignment as 
+
+5wrd_lir
+/------------TDEELCQIQES*
+LC3C_NDP52_shorter_alignment_maxg
+/FRPENEEDILVVTT---------*
+lc3c_ndp52_extend
+/FRPENEEDILVVTTQGEVEEIEQ*
+
+Modeller will use the first part of the LIR in the LC3C_NDP52_shorter_alignment_maxg and the last part (helix) of the LIR in the 5wrd_lir to build the final model. We left an overlap of two residues (TD with TT) after looking at the two structure with pymol. 
+We then modified the usual modeller-multiple3.py script for MODELLER. We inserted the corrected pdb file names. The models are set to be numbered as chain A from residue 8 for the LC3C and chain B from residue 225 for the NDP_52 LIR.  In the modelling, we froze all the LC3C and the NDP_52 LIR to keep the structure of the template LC3C_NDP52_shorter_alignment_maxg using the line
+
+return selection(self) - selection(self.residue_range('1:A', '120:A'), self.residue_range('121:B', '132:B'))
+
+We then forced helical conformation in the C-terminal part of NDP_52 LIR from T238 to Q247.
+
+rsr.add(secondary_structure.alpha(self.residue_range('134:B', '143:B')))
+
+Always remember that MODELLER renumbers sequentially the residues during the modelling process (e.g the first residue 8 in chain A becomes residue 1 in chain A etc.).
+
+All the process is now working and Mukesh is creating 1000 models. 
+We are having some problems in the orientation of the helix that is not the same as the template (see figure below). We will check if we can find better models in the 1000 ones. Otherwise, we can try different strategies (each alone or even together):
+-remodel and make "defrozed" a larger part of the NDP_52 LIR
+-add some distance restraints
+-other more complex restraints  

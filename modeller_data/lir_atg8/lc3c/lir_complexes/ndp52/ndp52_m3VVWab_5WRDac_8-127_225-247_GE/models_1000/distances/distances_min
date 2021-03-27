@@ -1,0 +1,4 @@
+ awk 'min=="" || $3 < min {min=$3; minline=$0}; END{ print minline}' colvar
+ 537.000000 1.114043 0.882893
+
+select -> 538
