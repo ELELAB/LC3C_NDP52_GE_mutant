@@ -1,0 +1,17 @@
+The folder modeller_data includes:
+   └── lir_atg8
+       └── lc3c
+           └── lir_complexes
+               └── ndp52
+                   ├── ndp52_3VVWba_13-126_129-137_8-127_225-241
+                   ├── ndp52_m3VVWab_5WRDac_8-127_225-247_GE
+                   └── ndp52_m3VVWab_5WRDbd_8-127_225-247_GE
+
+
+In the folder ndp52_3VVWba_13-126_129-137_8-127_225-241 we modeled the complex between LC3C 8-127 and NDP52 125-141 LIR by using MODELLER version 9.15 (PMID: 27322406) and using as template the LC3C-NDP52 complex PDB entry 3VVW, PMID:23022382 
+We predicted a total of 100 models from which we selected model lc3c_ndp52.B99990020.pdb
+
+In the folder ndp52_m3VVWab_5WRDac_8-127_225-247_GE and ndp52_m3VVWab_5WRDbd_8-127_225-247_GE we modeled the complex of LC3C 8-127 NDP52 125-147 by using MODELLER version 9.15 (PMID: 27322406) and, as templates, the model previously selected for LC3C 8-127 NDP52 125-141 and the X-ray structure of the complex between FYCO1 1235-1253 and LC3B 4-120 (PDB entry 5WRD, PMID: 28291748). 
+We carried out two MODELLER runs using each of the complex in the crystal asymmetric unit of 5WRD as templates (5WRDac and 5WRDbd)
+For each of the two MODELLER runs, we generated 1000 models and calculated the distance between the Cα atom of G240 in NDP52 and the Cζ atom in the guanidine group of R76 of LC3C. This analysis is included in the subfolder /distances. 
+We then selected one model for each MODELLER run with the shortest distance between the two atoms (lc3c_ndp52_extend.B99990834.pdb for ndp52_m3VVWab_5WRDbd_8-127_225-247_GE and lc3c_ndp52_extend.B99990538.pdb for ndp52_m3VVWab_5WRDac_8-127_225-247_GE)

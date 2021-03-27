@@ -20,10 +20,9 @@ Please cite our publication if you use the material in this repository.
 
 The XXX main folders in the repository contains:
 
-pdb -> a folder with the initial pdb structures (from PDB) used in the study
-modeller_runs -> the files and scripts to generate the models of the complexes
-modeller_data -> the files and scripts to reproduce the model selection for simulations 
-simulations -> templates files for gromacs to run preparation, md and metaD simulations + bash scripts for the preparation steps
+modeller_data: 
+- the files and scripts to generate the models of the complexes
+- the files and scripts to reproduce the model selection for simulations 
 simulations_analysis -> folders, scripts, input and outputs to reproduce the analyses of md simulations or metadynamics
 
 NOTES

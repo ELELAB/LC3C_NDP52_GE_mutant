@@ -1,0 +1,15 @@
+The folder simulations_analysis includes:
+└── lc3c
+    └── lir_complexes
+        └── ndp52
+            └── ndp52_m3VVWab_5WRDbd_8-127_225-247_GE
+                └── maxg_model_834
+                    └── CHARMM22star
+                        ├── md
+                        │   └── pyinteraph
+                        └── metad_wte
+                            └── sb_R76_E240_500ns
+                                └── 1d_fes
+
+The folder md/pyinteraph includes the analysis of the salt bridges calculated on the classical MD simulation
+The folder metad_wte/sb_R76_E240_500ns/1d_fes includes the reconstructed free energy surface associated with the distance between Cδ and Cζ of E140 of NDP52 and R76 of LC3C calculated on the wte-metadynamics 
