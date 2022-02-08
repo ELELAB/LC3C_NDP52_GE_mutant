@@ -1,15 +1,27 @@
 The folder simulations_analysis includes:
-└── lc3c
-    └── lir_complexes
-        └── ndp52
-            └── ndp52_m3VVWab_5WRDbd_8-127_225-247_GE
-                └── maxg_model_834
-                    └── CHARMM22star
-                        ├── md
-                        │   └── pyinteraph
-                        └── metad_wte
-                            └── sb_R76_E240_500ns
-                                └── 1d_fes
+    └── lc3c
+        └── lir_complexes
+            └── ndp52
+                └── ndp52_m3VVWab_5WRDbd_8-127_225-247_GE
+                    └── maxg_model_834
+                        └── CHARMM22star
+                            ├── md
+                            │   ├── pyinteraph
+                            │   └── pyinteraph-hb
+                            └── metad_wte
+                                └── sb_R76_E240_500ns
+                                    ├── 1D_d1
+                                    ├── 1d_fes
+                                    ├── convergence_block
+                                    ├── convergence_energy
+                                    └── reconstructed_bias
+
 
 The folder md/pyinteraph includes the analysis of the salt bridges calculated on the classical MD simulation
-The folder metad_wte/sb_R76_E240_500ns/1d_fes includes the reconstructed free energy surface associated with the distance between Cδ and Cζ of E140 of NDP52 and R76 of LC3C calculated on the wte-metadynamics 
+The folder md/pyinteraph-hb includes the analysis of the hydrogen bonds calculated on the classical MD simulation
+In the folder metad_wte/sb_R76_E240_500ns/:
+-The folder 1D_d1 includes mono-dimensional free energy landscape reconstructed from the deposited bias during the metadynamics simulation using the sum_hills tool available in PLUMED using a stride of 1000. We compressed this folder in a tar.gz file
+-The folder 1d_fes includes the plot of the final mono-dimensional free energy surface associated with the distance between Cδ and Cζ of E140 of NDP52 and R76 of LC3C calculated on the metadynamics. We compressed this folder in a tar.gz file
+-The folder convergence_energy includes the calculation of the differences in free energy between the states of interest and the rest of the free energy surface along the collective variable d1. We selected states from 0.3 to 0.7, corresponding to the salt bridge formation, and the state from 1.55 to 1.7 nm. We compressed this folder in a tar.gz file
+-The folder reconstructed_bias contains the re-estimation of metadynamics bias from the completed metadynamics run. We compressed this folder in a tar.gz file
+-The folder convergence_block includes the calculation performed using the block error method for analysing the convergence of the metadynamics. We compressed this folder in a tar.gz file 

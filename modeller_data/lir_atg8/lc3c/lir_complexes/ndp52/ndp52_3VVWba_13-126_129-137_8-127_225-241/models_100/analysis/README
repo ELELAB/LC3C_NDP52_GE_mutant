@@ -1,0 +1,22 @@
+In this directory we perform the model selection of the first round of modeling.
+We
+    * concatenate all the models into a trajectory using theseus
+    * we calculate the solvent accessible surface of the 1 and 4
+      residues of the core LIR motif
+    * we calculate the main- and side-chain dihedrals of the 
+      residues - we don't use them for model selection, however
+    * we calculate the gyration radius of the LIR peptide
+    * We use an R script to collect the values into a table and filter
+      it. We remove from the final ranking tables those models that
+      have sas of core LIR motif residue 1  >= 0.75 nm^2 and sas of
+      core LIR motif residue 4 >= 0.5 nm^2. These values were selected
+      after examining a set of experimental structure of core LIR motifs
+
+In order to reproduce this calculation, just run:
+
+    bash run.sh
+
+the requirements are:
+    * theseus
+    * GROMACS >=5.1.5
+    * R 3.6.1 with the Peptides package installed
