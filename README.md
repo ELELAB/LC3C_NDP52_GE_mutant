@@ -24,7 +24,7 @@ The main folders in the repository contains:
 
 - modeller_data -> the files and scripts to generate the models of the complexes and the files and scripts to reproduce the model selection for simulations 
 - simulations_analysis -> folders, scripts, input and outputs to reproduce the analyses of md simulations or metadynamics
-- plumednest -> the files to reproduce the metadynamics simulation associated with the publication. The files are deposited in the PLUMED-NEST project ID plumID:XXX They can be downloaded from here: https://www.plumed-nest.org/XXX
+- plumednest -> the files to reproduce the metadynamics simulation associated with the publication. The files are deposited in the PLUMED-NEST project ID plumID:22.007 They can be downloaded from here: https://www.plumed-nest.org/eggs/22/007/
 
 
 NOTES
